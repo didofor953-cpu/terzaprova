@@ -67,6 +67,9 @@ h4{margin:0;padding-right:1.9rem;font-size:1.2rem;text-transform:uppercase;line-
 #order{margin-top:2.5rem;border:2px solid var(--pri);border-radius:.5rem;background:var(--card);padding:1.2rem}
 #order h2{margin:0;font-size:1.9rem;color:var(--pri)}#order h2 span{font-family:inherit;font-size:1.1rem;color:var(--mut)}
 .mut{color:var(--mut)}
+.golink{font:inherit;font-weight:inherit;text-transform:uppercase;color:var(--pri);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:.15em}
+#covbox{scroll-margin-top:.8rem}
+.warn .golink{color:inherit;text-transform:none}
 #lines{list-style:none;margin:.5rem 0 0;padding:0}
 #lines li{display:flex;justify-content:space-between;align-items:center;gap:.75rem;padding:.5rem 0;border-bottom:1px solid var(--bd)}
 #lines small{display:block;color:var(--mut);font-size:.95rem}
@@ -1405,14 +1408,15 @@ function render(){
   $("empty").hidden=c>0||covers>0; $("tot").hidden=c===0; $("totv").textContent=eur(total());
   $("tot").hidden=c===0&&!covers;
   $("go").disabled=!c||!covers||!ORDINI_APERTI;
-  var w=!ORDINI_APERTI?"":!covers?"Indica quanti coperti prima di confermare.":!c?"Aggiungi almeno un piatto.":"";
-  $("warn").textContent=w;$("warn").hidden=!w;
+  var w=!ORDINI_APERTI?"":!covers?"Indica quanti <button type='button' class='golink' data-gocov='1'>coperti</button> prima di confermare.":!c?"Aggiungi almeno un piatto.":"";
+  $("warn").innerHTML=w;$("warn").hidden=!w;
   $("lines").innerHTML=(covers?'<li><div><b style="text-transform:uppercase">Coperti</b><small>'+covers+' × '+eur(byId("Coperto").price)+'</small></div></li>':"")+Object.keys(cart).map(function(id){var m=byId(id),n=cart[id];
     return '<li><div><b style="text-transform:uppercase">'+m.name+'</b><small>'+n+' × '+eur(m.price)+'</small></div>'+qtyHtml(id,n)+'</li>'}).join("");
 }
 
 document.addEventListener("click",function(e){
   var b=e.target.closest("button"); if(!b)return;
+  if(b.dataset.gocov){$("covbox").scrollIntoView({behavior:"smooth",block:"center"});return}
   if(b.dataset.cov){covers=Math.max(0,Math.min(99,covers+Number(b.dataset.cov)));render();return}
   if(b.dataset.info){var d=byId(b.dataset.info);$("mt").textContent=d.name;$("mal").textContent=d.all||"Non ancora indicati: chiedi al personale";$("modal").classList.add("on");return}
   if(b.dataset.close){$("modal").classList.remove("on");return}
