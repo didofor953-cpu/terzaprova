@@ -21,7 +21,7 @@ h1 small{font-size:.4em}
 h2.menu{font-size:2.6rem;color:var(--pri);margin:1.2rem 0 0}
 .star{position:absolute;right:.5rem;top:.8rem;width:4.5rem;height:4.5rem;background:var(--pri);color:var(--pri-fg);display:flex;flex-direction:column;align-items:center;justify-content:center;clip-path:polygon(50% 0%,61% 12%,75% 6%,78% 22%,94% 25%,88% 40%,100% 50%,88% 60%,94% 75%,78% 78%,75% 94%,61% 88%,50% 100%,39% 88%,25% 94%,22% 78%,6% 75%,12% 60%,0% 50%,12% 40%,6% 25%,22% 22%,25% 6%,39% 12%)}
 .star b{font-family:"Alfa Slab One",Georgia,serif;font-weight:400;font-size:1.4rem;line-height:1}.star span{font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
-main{max-width:56rem;margin:0 auto;padding:0 1rem 4rem}
+main{max-width:56rem;margin:0 auto;padding:0 1rem 1rem}
 .info{background:var(--sec);color:var(--sec-fg);border:1px solid var(--bd);border-radius:.5rem;padding:1rem;margin-bottom:1.2rem}
 .closed{background:#fde8e8;color:#7a1f1f;border-color:#f3b8b8;font-weight:800;font-size:1.3rem;text-align:center}
 .cov{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;background:var(--card);border:3px solid var(--pri);border-radius:.6rem;padding:1rem 1.2rem;margin-bottom:1.2rem}
@@ -79,6 +79,12 @@ h4{margin:0;padding-right:1.9rem;font-size:1.2rem;text-transform:uppercase;line-
 #qr{display:block;margin:.8rem auto;width:16rem;max-width:100%;height:auto;image-rendering:pixelated;background:#fff;border-radius:.3rem}
 #sum{text-align:left;font-size:1rem;margin:.8rem auto;max-width:24rem;white-space:pre-wrap}
 .end{margin-top:2.5rem;text-align:center;font-size:1.6rem;text-transform:uppercase;line-height:1.1;color:var(--pri)}
+.imgnote{text-align:center;font-size:1rem;font-weight:800;color:var(--pri);margin:.2rem 0 0}
+.social{text-align:center;padding:.5rem 1rem 1rem}
+.social p{margin:0 0 .6rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--pri)}
+.social a{display:inline-block;width:3rem;height:3rem;margin:0 .45rem;border-radius:50%;transition:transform .15s}
+.social a:hover{transform:scale(1.1)}
+.social svg{display:block;width:100%;height:100%}
 footer{padding:0 1rem 2rem;text-align:center;font-size:.95rem;color:var(--mut)}
 </style>
 </head>
@@ -99,6 +105,7 @@ footer{padding:0 1rem 2rem;text-align:center;font-size:.95rem;color:var(--mut)}
   </section>
   <input id="q" type="search" placeholder="Cerca un piatto…" aria-label="Cerca un piatto">
   <nav id="nav"></nav>
+  <p class="imgnote">(Le immagini sono puramente indicative)</p>
   <div id="grid"></div>
 
   <section id="order">
@@ -118,14 +125,26 @@ footer{padding:0 1rem 2rem;text-align:center;font-size:.95rem;color:var(--mut)}
       <button class="big sec" id="again">Crea un nuovo ordine</button>
     </div>
   </section>
-  <p class="end display">Vuoi aggiungere altre portate?<br>chiedi al cameriere al tavolo!</p>
+  <p class="end display">Per aggiungere altre portate<br>chiedi al cameriere</p>
 </main>
 <div id="modal" role="dialog" aria-modal="true" aria-labelledby="mt">
   <div class="box"><button class="x" data-close="1" aria-label="Chiudi">×</button>
     <h3 id="mt"></h3><div class="lbl">Allergeni</div><div class="al" id="mal"></div>
     <p class="sm">Per allergie o intolleranze chiedi sempre conferma al personale.</p></div>
 </div>
-<footer>Insieme per Alluvioni APS · ass.insiemeperalluvioni@gmail.com · Le immagini sono puramente indicative</footer>
+<section class="social">
+  <p>Seguici sui social</p>
+  <!-- ===== LINK SOCIAL =====
+       Sostituisci il "#" dentro href="..." con l'indirizzo completo della pagina,
+       lasciando le virgolette. Esempio: href="https://www.facebook.com/nomepagina" -->
+  <a href="#" target="_blank" rel="noopener" aria-label="Facebook">
+    <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#1877f2"/><path fill="#fff" d="M26.5 38V26h4l.7-4.7h-4.7v-3c0-1.4.6-2.4 2.5-2.4h2.4v-4.2c-.4-.1-1.9-.2-3.5-.2-3.6 0-6 2.2-6 6.200v3.600h-4V26h4v12z"/></svg>
+  </a>
+  <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
+    <svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="igg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fdc468"/><stop offset=".35" stop-color="#e1306c"/><stop offset="1" stop-color="#5851db"/></linearGradient></defs><circle cx="24" cy="24" r="24" fill="url(#igg)"/><rect x="12.500" y="12.500" width="23" height="23" rx="6.500" fill="none" stroke="#fff" stroke-width="2.500"/><circle cx="24" cy="24" r="5.500" fill="none" stroke="#fff" stroke-width="2.500"/><circle cx="31" cy="17" r="1.600" fill="#fff"/></svg>
+  </a>
+</section>
+<footer>Insieme per Alluvioni APS · ass.insiemeperalluvioni@gmail.com</footer>
 
 <script>
 var __M={},__C={};function __req(n){n=n.replace(/^.*\//,'');if(!__C[n]){var m={exports:{}};__M[n](m,m.exports);__C[n]=m.exports}return __C[n]}
