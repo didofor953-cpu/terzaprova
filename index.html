@@ -23,9 +23,9 @@ h2.menu{font-size:2.6rem;color:var(--pri);margin:1.2rem 0 0}
 .star{position:absolute;right:.5rem;top:.8rem;width:4.5rem;height:4.5rem;background:var(--pri);color:var(--pri-fg);display:flex;flex-direction:column;align-items:center;justify-content:center;clip-path:polygon(50% 0%,61% 12%,75% 6%,78% 22%,94% 25%,88% 40%,100% 50%,88% 60%,94% 75%,78% 78%,75% 94%,61% 88%,50% 100%,39% 88%,25% 94%,22% 78%,6% 75%,12% 60%,0% 50%,12% 40%,6% 25%,22% 22%,25% 6%,39% 12%)}
 .star b{font-family:"Alfa Slab One",Georgia,serif;font-weight:400;font-size:1.4rem;line-height:1}.star span{font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
 main{max-width:56rem;margin:0 auto;padding:0 1rem 1rem}
-.info{background:var(--sec);color:var(--sec-fg);border:2px solid var(--pri);border-radius:.5rem;padding:1rem;margin-bottom:1.2rem}
+.info{background:var(--sec);color:var(--sec-fg);border:2px solid var(--pri);border-radius:.5rem;padding:1rem;margin-bottom:1.2rem;text-align:center}
 .closed{background:#fde8e8;color:#7a1f1f;border-color:#f3b8b8;font-weight:800;font-size:1.3rem;text-align:center}
-.cov{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;background:var(--card);border:3px solid var(--pri);border-radius:.6rem;padding:1rem 1.2rem;margin-bottom:1.2rem}
+.cov{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1rem;background:var(--card);border:3px solid var(--pri);border-radius:.6rem;padding:1rem 1.2rem;margin-bottom:1.2rem}
 .cov.need{border-color:#c0392b;background:#fff5f4}
 .cov h2{margin:0;font-size:1.8rem;color:var(--pri)}.cov p{margin:.2rem 0 0;color:var(--mut);font-size:1rem}
 .cov .qty{gap:.9rem}.cov .qty button{width:3.2rem;height:3.2rem;font-size:1.8rem}.cov .qty b{font-size:2.2rem;min-width:2.5rem}
@@ -65,7 +65,7 @@ h4{margin:0;padding-right:1.9rem;font-size:1.2rem;text-transform:uppercase;line-
 .qty button{width:2.2rem;height:2.2rem;font:inherit;font-weight:800;border:1px solid var(--bd);border-radius:.4rem;background:var(--card);color:var(--pri);cursor:pointer}
 .qty b{min-width:1.4rem;text-align:center}
 #order{margin-top:2.5rem;border:2px solid var(--pri);border-radius:.5rem;background:var(--card);padding:1.2rem}
-#order h2{margin:0;font-size:1.9rem;color:var(--pri)}#order h2 span{font-family:inherit;font-size:1.1rem;color:var(--mut)}
+#order h2{margin:0;font-size:1.9rem;color:var(--pri);text-align:center}#order h2 span{display:block;margin-top:.2rem;font-family:inherit;font-size:1.1rem;color:var(--mut)}
 .mut{color:var(--mut)}
 .golink{font:inherit;font-weight:inherit;text-transform:uppercase;color:var(--pri);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:.15em}
 #covbox{scroll-margin-top:.8rem}
@@ -1404,7 +1404,7 @@ function render(){
   $("covp").textContent=eur(byId("Coperto").price);
   $("covqty").innerHTML='<button data-cov="-1" aria-label="Meno coperti">−</button><b>'+covers+'</b><button data-cov="1" aria-label="Più coperti">+</button>';
   $("covbox").className="cov"+(covers?"":" need");
-  $("cnt").textContent="· "+c+(c===1?" pezzo":" pezzi");
+  $("cnt").textContent=c+(c===1?" pezzo":" pezzi");
   $("empty").hidden=c>0||covers>0; $("tot").hidden=c===0; $("totv").textContent=eur(total());
   $("tot").hidden=c===0&&!covers;
   $("go").disabled=!c||!covers||!ORDINI_APERTI;
