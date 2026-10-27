@@ -1337,7 +1337,7 @@ var MENU = [
  ["Bevande","Vino Bott.","Vino in bottiglia",8,"Bonarda, Barbera, vino bianco frizzante"],
  ["Bevande","Timorasso","Timorasso",12],
  ["Bevande","Birra","Birra alla spina",5],
- ["Coperto","Coperto","Coperto (a persona)",1.5]
+ ["Coperto","Coperto","Coperto",1.5]
 ].map(function(m){return{cat:m[0],id:m[1],name:m[2],price:m[3],note:m[4],all:m[5]}});
 var CATS = MENU.filter(function(m){return m.id!=="Coperto"}).map(function(m){return m.cat}).filter(function(c,i,a){return a.indexOf(c)===i});
 var $ = function(id){return document.getElementById(id)};
