@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow+Condensed:wght@400;600;800&display=swap">
 <style>
-:root{--bg:oklch(.99 .004 140);--fg:oklch(.28 .05 150);--card:#fff;--pri:oklch(.56 .12 148);--pri-fg:#fff;--sec:oklch(.95 .03 145);--sec-fg:oklch(.38 .09 150);--mut:oklch(.5 .03 150);--acc:oklch(.93 .05 145);--bd:oklch(.9 .03 145)}
+:root{--bg:#f4edda;--fg:#459254;--card:#fff;--pri:#459254;--pri-fg:#fff;--sec:oklch(.95 .03 145);--sec-fg:#459254;--mut:#459254;--cat:#d04a4c;--acc:oklch(.93 .05 145);--bd:oklch(.9 .03 145)}
 *{box-sizing:border-box}
 body{margin:0;padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0);background:var(--bg);color:var(--fg);font:1.15rem/1.35 "Barlow Condensed","Arial Narrow",Arial,sans-serif}
 .display{font-family:"Alfa Slab One",Georgia,serif;font-weight:400}
@@ -46,7 +46,7 @@ nav button{font:inherit;font-weight:800;text-transform:uppercase;letter-spacing:
 nav button.on{background:var(--pri);color:var(--pri-fg);border-color:var(--pri)}
 #grid{display:grid;grid-template-columns:1fr;gap:1rem}
 @media(min-width:640px){#grid{grid-template-columns:1fr 1fr}}
-h3.cat{grid-column:1/-1;text-align:center;margin:1.5rem 0 0;font-size:1.9rem;text-transform:uppercase;color:var(--pri)}
+h3.cat{grid-column:1/-1;text-align:center;margin:1.5rem 0 0;font-size:1.9rem;text-transform:uppercase;color:var(--cat)}
 article{position:relative;display:flex;overflow:hidden;border:2px solid var(--bd);border-radius:.5rem;background:var(--card);min-height:6.5rem}
 article.sel{border-color:var(--pri)}
 .ph{width:5rem;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--acc);color:var(--pri);opacity:.9;font-size:2.4rem}
@@ -125,7 +125,7 @@ footer{padding:0 1rem 2rem;text-align:center;font-size:.95rem;color:var(--mut)}
       <button class="big sec" id="again">Crea un nuovo ordine</button>
     </div>
   </section>
-  <p class="end display">Vuoi aggiungere altre portate?<br>Chiedi al cameriere al tavolo!</p>
+  <p class="end display">Per aggiungere altre portate<br>chiedi al cameriere</p>
 </main>
 <div id="modal" role="dialog" aria-modal="true" aria-labelledby="mt">
   <div class="box"><button class="x" data-close="1" aria-label="Chiudi">×</button>
@@ -137,10 +137,10 @@ footer{padding:0 1rem 2rem;text-align:center;font-size:.95rem;color:var(--mut)}
   <!-- ===== LINK SOCIAL =====
        Sostituisci il "#" dentro href="..." con l'indirizzo completo della pagina,
        lasciando le virgolette. Esempio: href="https://www.facebook.com/nomepagina" -->
-  <a href="https://www.facebook.com/insiemeperalluvioni" target="_blank" rel="noopener" aria-label="Facebook">
+  <a href="#" target="_blank" rel="noopener" aria-label="Facebook">
     <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#1877f2"/><path fill="#fff" d="M26.5 38V26h4l.7-4.7h-4.7v-3c0-1.4.6-2.4 2.5-2.4h2.4v-4.2c-.4-.1-1.9-.2-3.5-.2-3.6 0-6 2.2-6 6.200v3.600h-4V26h4v12z"/></svg>
   </a>
-  <a href="https://www.instagram.com/insiemeperalluvioni" target="_blank" rel="noopener" aria-label="Instagram">
+  <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
     <svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="igg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#fdc468"/><stop offset=".35" stop-color="#e1306c"/><stop offset="1" stop-color="#5851db"/></linearGradient></defs><circle cx="24" cy="24" r="24" fill="url(#igg)"/><rect x="12.500" y="12.500" width="23" height="23" rx="6.500" fill="none" stroke="#fff" stroke-width="2.500"/><circle cx="24" cy="24" r="5.500" fill="none" stroke="#fff" stroke-width="2.500"/><circle cx="31" cy="17" r="1.600" fill="#fff"/></svg>
   </a>
 </section>
