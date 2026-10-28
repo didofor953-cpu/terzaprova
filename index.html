@@ -46,7 +46,7 @@ nav{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}
 nav button{font:inherit;font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:.35rem 1rem;border-radius:99px;border:1px solid var(--bd);background:var(--card);color:var(--pri);cursor:pointer}
 nav button.on{background:var(--pri);color:var(--pri-fg);border-color:var(--pri)}
 #grid{display:grid;grid-template-columns:1fr;gap:1rem}
-@media(min-width:640px){#grid{grid-template-columns:1fr 1fr}}
+@media(min-width:640px){#grid{grid-template-columns:1fr 1fr}article.solo{grid-column:1/-1;justify-self:center;width:calc(50% - .5rem)}}
 h3.cat{grid-column:1/-1;text-align:center;margin:1.5rem 0 0;font-size:1.9rem;text-transform:uppercase;color:var(--cat)}
 article{position:relative;display:flex;overflow:hidden;border:2px solid var(--pri);border-radius:.5rem;background:var(--card);min-height:6.5rem}
 article.sel{border-color:var(--pri)}
@@ -1400,6 +1400,8 @@ function render(){
       (!ORDINI_APERTI?'':n?qtyHtml(m.id,n):'<button class="add" data-id="'+m.id+'" data-d="1">Aggiungi</button>')+'</div></div></article>';
   });
   $("grid").innerHTML=html||'<p class="mut">Nessun piatto trovato.</p>';
+  (function(){var g=$("grid").children,run=[];function fin(){if(run.length%2===1)run[run.length-1].classList.add("solo");run=[]}
+    for(var i=0;i<g.length;i++){if(g[i].tagName==="H3")fin();else if(g[i].tagName==="ARTICLE")run.push(g[i])}fin()})();
   var c=count();
   $("covp").textContent=eur(byId("Coperto").price);
   $("covqty").innerHTML='<button data-cov="-1" aria-label="Meno coperti">−</button><b>'+covers+'</b><button data-cov="1" aria-label="Più coperti">+</button>';
